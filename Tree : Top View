@@ -1,0 +1,29 @@
+static class Locator{
+        Node node;
+        int dist;
+        Locator(Node node,int dist){
+            this.node=node;
+            this.dist=dist;
+        }
+    }
+	public static void topView(Node root) {
+     
+     Map<Integer,Integer> map=new HashMap<>();
+     Queue<Locator> q=new LinkedList<Locator>();
+     q.add(new Locator(root,0));
+     
+     while(!q.isEmpty()){
+         Locator locator=q.poll();
+         int dist=locator.dist;
+         Node node=locator.node;
+         
+         
+         if(node.left!=null) q.add(new Locator(node.left,dist-1));
+         if(node.right!=null) q.add(new Locator(node.right,dist+1));
+         if(!map.containsKey(dist)) map.put(dist,node.data);
+     }
+    
+        map.forEach((k,v)->{
+            System.out.print(v+" ");
+        });
+    }
