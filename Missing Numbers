@@ -1,0 +1,21 @@
+public static List<Integer> missingNumbers(List<Integer> arr, List<Integer> brr) {
+    // Write your code here
+        Map<Integer,Integer> map=new HashMap<>();
+        List<Integer> list=new ArrayList<>();
+        for(int i:brr){
+            int freq=map.getOrDefault(i,0);
+            freq++;
+            map.put(i,freq);
+        }
+        
+        for (int i : arr) {
+            int freq = map.get(i);
+                freq--;
+            if (freq == 0)
+                map.remove(i);
+            else
+            map.put(i, freq);
+    }
+        list = map.keySet().stream().collect(Collectors.toList());
+        return list;
+    }
