@@ -1,0 +1,30 @@
+import java.util.*;
+public class Test{
+    public static void main(String ar[]){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int num[] =new int[n];
+        for(int i=0;i<n;i++) num[i]=sc.nextInt();
+        //Taking Input part is done
+        int i=0;
+        int area=0;
+        Stack<Integer> stack=new Stack();
+        for(i=0;i<n;){
+            if(stack.isEmpty()||num[stack.peek()]<=num[i])
+                stack.push(i++);
+            else{
+                int val=stack.pop();
+                if(stack.isEmpty()) area=Math.max(area,i*num[val]);
+                else area=Math.max(area,num[val]*(i-stack.peek()-1));
+            }
+        }
+        while(!stack.isEmpty()){
+            int val=stack.pop();
+            if(stack.isEmpty()) area=Math.max(area,i*num[val]);
+            else area=Math.max(area,num[val]*(i-stack.peek()-1));
+        }
+        System.out.println(area);
+    }
+}
+
+//8979 4570 6436 5083 7780 3269 5400 7579 2324 2116
