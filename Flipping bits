@@ -1,0 +1,7 @@
+public static long flippingBits(long n) {
+    // Write your code here
+        for(int i=0;i<32;i++){
+            n^=1l<<i;
+        }
+        return n;
+    }
