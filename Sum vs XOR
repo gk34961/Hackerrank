@@ -1,0 +1,11 @@
+public static long sumXor(long n) {
+    // Write your code here
+    if(n==0) return 1l;
+    long zeroCount=0;
+        while (n>0) {
+            if (n%2==0)
+                zeroCount++;
+            n/=2;
+        }
+        return 1l<<zeroCount;
+    }
