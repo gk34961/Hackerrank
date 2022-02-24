@@ -1,0 +1,18 @@
+ public static String counterGame(long n) {
+    // Write your code here
+    int count=0;
+    long temp=0;
+        while(n!=1){
+            count++;
+            if(n!=0 && ((n&(n-1)) == 0))
+                n/=2;
+            else{
+                temp=n;
+                while((temp & temp-1)!=0)
+                    temp=temp&temp-1;
+                n-=temp;
+            }  
+        }
+        if(count%2==0) return "Richard";
+        else return "Louise";
+    }
