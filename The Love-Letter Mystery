@@ -1,0 +1,14 @@
+public static int theLoveLetterMystery(String s) {
+    // Write your code here
+        int count=0;
+        int start=0;
+        int end=s.length()-1;
+        int temp1=0;
+        int temp2=0;
+        while(start<end){
+            temp1=s.charAt(start++);
+            temp2=s.charAt(end--);
+            count +=Math.abs(temp2-temp1);
+        }
+        return count;
+    }
