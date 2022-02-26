@@ -1,0 +1,11 @@
+public static int beautifulBinaryString(String b) {
+    // Write your code here
+        String str = b;
+        Pattern p = Pattern.compile("010");
+        Matcher m = p.matcher(str);
+        int count = 0;
+            while (m.find()){
+                count +=1;
+                }
+        return count;      
+    }
