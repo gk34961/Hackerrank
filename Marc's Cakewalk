@@ -1,0 +1,12 @@
+public static long marcsCakewalk(List<Integer> calorie) {
+    // Write your code here
+    Collections.sort(calorie,Collections.reverseOrder());
+    
+    long i=0;
+    long sum=0;
+    for(int val:calorie){
+        System.out.println(val);
+        sum+=Math.pow(2,i++)*val;
+    }
+    return sum;
+    }
